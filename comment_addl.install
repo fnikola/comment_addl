@@ -1,0 +1,44 @@
+<?php
+/* this module sets up any tables we need for the data we will be storing
+   it may be necessary to alter some of the queries to your needs. */
+function comment_addl_schema() {
+  $schema['comment_addl'] = array(
+    'description' => t('...??'),
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial'
+        // zerofill auto_increment
+      ),
+      'xid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE
+        // default NULL
+        // zerofill
+      ),
+      'type' => array(
+        'type' => 'varchar',
+        'length' => 16
+        // enum('node', 'comment')
+        // not null
+        // null check
+      ),
+      'upoints' => array(
+        'type' => 'int',
+        'unsigned' => TRUE
+        // default NULL
+        // zerofill
+      ),
+    ),
+    'primary key' => array('id')
+  );
+  return $schema;
+}
+
+function comment_addl_install() {
+  drupal_install_schema('comment_addl', 'comment_addl');
+}
+
+function comment_addl_uninstall() {
+  drupal_uninstall_schema('comment_addl', 'comment_addl');
+}
+?>
