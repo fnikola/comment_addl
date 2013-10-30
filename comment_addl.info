@@ -1,0 +1,8 @@
+name = Comment Additional
+description = Allows you to add a field to the comment form through the drupal for.
+dependencies[] = comment
+package = Other
+core = 6.x
+
+version = "6.x-1.0"
+
